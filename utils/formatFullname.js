@@ -11,14 +11,15 @@ module.exports = (fullName) => {
 
   const [firstName, lastName] = parts;
 
-  if (firstName.length === 0 || lastName.length === 0) {
+  if (!firstName.length || !lastName.length) {
     return 'Error';
   }
+  const formattedFirstName = `${firstName.charAt(0).toUpperCase()}${firstName
+    .slice(1)
+    .toLowerCase()}`;
+  const formattedLastName = `${lastName.charAt(0).toUpperCase()}${lastName
+    .slice(1)
+    .toLowerCase()}`;
 
-  const formattedFirstName =
-    firstName.charAt(0).toUpperCase() + firstName.slice(1).toLowerCase();
-  const formattedLastName =
-    lastName.charAt(0).toUpperCase() + lastName.slice(1).toLowerCase();
-
-  return formattedFirstName + ' ' + formattedLastName;
+  return `${formattedFirstName} ${formattedLastName}`;
 };
