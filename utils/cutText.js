@@ -11,7 +11,7 @@ module.exports = (content, maxLength) => {
     typeof content !== 'string' ||
     typeof maxLength !== 'number' ||
     maxLength <= 0 ||
-    content.length < 1
+    !content.length
   ) {
     return 'Error';
   }
